@@ -3,7 +3,7 @@ package lab1;
 public class Prog3 {
 
 	/**
-	 * @param args
+	 * @param ARG INDEED
 	 */
 	public static void main(String[] args) {
 		if(args.length<1){
