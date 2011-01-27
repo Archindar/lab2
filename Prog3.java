@@ -8,6 +8,9 @@ public class Prog3 {
 	public static void main(String[] args) {
 		if(args.length<1){
 			System.out.print("No input");
+			lala
+			lalala
+			alalalalalal
 		}
 		else{
 			int first = Integer.parseInt(args[0]);
@@ -16,7 +19,7 @@ public class Prog3 {
 			visual(first, life, life2);
 		}
 		
-	}
+	}sdasdasd
 	
 	public static void visual(int x, int y, int z){
 		String op;
@@ -25,7 +28,7 @@ public class Prog3 {
 		op="The recursive life length of " + x + " is " + z;
 		System.out.println(op);
 	}
-
+sd
 	
 	public static int iter_life_length(int a){
 		int fret=a;
