@@ -8,9 +8,6 @@ public class Prog3 {
 	public static void main(String[] args) {
 		if(args.length<1){
 			System.out.print("No input");
-			lala
-			lalala
-			alalalalalal
 		}
 		else{
 			int first = Integer.parseInt(args[0]);
