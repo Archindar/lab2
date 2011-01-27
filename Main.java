@@ -5,6 +5,6 @@ import lab2.Driver;
 
 public class Main {
 	public static void main(String[] args) {
-		Kolla en ändring
+		hatar allt
 	}
 }
