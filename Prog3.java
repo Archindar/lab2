@@ -8,7 +8,10 @@ public class Prog3 {
 	public static void main(String[] args) {
 		if(args.length<1){
 			System.out.print("No input");
+			lala
 		}
+		
+		no args here
 		else{
 			int first = Integer.parseInt(args[0]);
 			int life = iter_life_length(first);
