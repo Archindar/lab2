@@ -5,7 +5,7 @@ import lab2.Driver;
 
 public class Main {
 	public static void main(String[] args) {
-		Driver main_driver = new lab2.Driver();
+		Driver main_driver = new lab2.Driver(); //Labbpek 3. Skapar dynamiskt objekt main_driver.
 		main_driver.run();
 		
 	}

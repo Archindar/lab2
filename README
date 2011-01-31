@@ -1,0 +1,46 @@
+1 Introduction
+Many computer games in the genre \adventure role-playing games" have levels
+1
+lled with rooms
+that players explore in a quest for treasure and fame. To go to the next level you need to either
+solve a puzzle, nd a stair-case in the maze of rooms, seek and destroy a vicious monster etc.
+In this lab assignment we will construct a small program that creates, keeps track of, and
+displays a level. The program will also provide rudimentary support for moving between rooms by
+pressing keys on the keyboard.
+The purpose of the assignment is to learn about dynamic objects that are created at run-time,
+recursive structures in the form of an incrementally constructed directed graph and operations on
+such structures, and basic graphical user interfaces (GUI:s) where the model and the view of the
+model are kept separate.
+2 Components
+The nal program will consist of ve classes. On the course web page you can nd class les for
+all ve classes. These are incomplete and your task is to ll in the missing parts. Copy these les
+into a new project in Eclipse before you start your programing.
+The ve classes that you will write in this lab assignment are:
+Main This class contains the mandatory method main to which the operating system transfers
+control when the program starts. This method does just two things:
+1. It creates an object of type Driver and
+2. calls the method run() that this driver has.
+This class belongs to the package lab2.
+Driver The driver class is responsible for creating both a level and a GUI for the level. To create
+a level, it rst puts together a graph of rooms by creating a set of rooms and connecting
+them to each other by corridors. It is up to the programmer to choose locations of corridors
+and which rooms are connected.
+This class belongs to the package lab2.
+1Note that a level here is not the same as experience level that can be found in role-playing games.
+1Figure 1: UML-diagram for lab 2. Private inner classes are not shown.
+Room A dynamic object of this class represents a room.
+This class belong to the package lab2.level.
+Level A dynamic object of this class represents a level based on a graph of rooms.
+Floorplans are observable.
+This class belong to the package lab2.level.
+LevelGUI A dynamic object of this class observes a level and visualizes it in the form of a simple
+2-dimensional drawing in a separate window.
+The class belongs to the package lab2.level and contains two private inner classes:
+Display A kind of area on which graphics can be painted. This is where everything that
+shows up on the computer screen is produced.
+Listener A kind of KeyListener (see documentation on Java's GUI and Events in Part 2
+of the course compendium), and code that makes a level react on key strokes on a
+keyboard. A LevelGUI contains a dynamic object of this class.
+Note that the class Level represents the level itself, while the class LevelGUI represents a view
+of the level. This dierence will be explained in more detail later in this document. We will now
+program these classes in separate steps.
