@@ -1,4 +1,4 @@
-package lab1;
+package lab2-ny;
 
 public class Prog3 {
 
@@ -8,10 +8,10 @@ public class Prog3 {
 	public static void main(String[] args) {
 		if(args.length<1){
 			System.out.print("No input");
-			lala
+		
 		}
 		
-		no args here
+
 		else{
 			int first = Integer.parseInt(args[0]);
 			int life = iter_life_length(first);
@@ -19,7 +19,7 @@ public class Prog3 {
 			visual(first, life, life2);
 		}
 		
-	}sdasdasd
+	}
 	
 	public static void visual(int x, int y, int z){
 		String op;
