@@ -10,10 +10,15 @@ public class Room {
 	Room RSouth;
 	Room RWest;
 	Room REast;
+	Color Rcolor;
 	
+	int dimx;
+	int dimy;
 	
 	public Room(int dx, int dy, Color color) {
-
+		this.Rcolor = color;
+		this.dimx = dx;
+		this.dimy = dy;
 	}
 
 	public void connectNorthTo(Room r) {
