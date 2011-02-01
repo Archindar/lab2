@@ -9,9 +9,18 @@ public class Room {
 	Room RSouth;
 	Room RWest;
 	Room REast;
+	Color Rcolor;
 	
+<<<<<<< HEAD
+=======
+	int dimx;
+	int dimy;
+	
+>>>>>>> origin/master
 	public Room(int dx, int dy, Color color) {
-
+		this.Rcolor = color;
+		this.dimx = dx;
+		this.dimy = dy;
 	}
 
 	public void connectNorthTo(Room r) {
