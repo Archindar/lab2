@@ -15,7 +15,6 @@ public class Driver {
 		Room R3 = new Room(100, 400, Color.gray);
 		Room R4 = new Room(600, 400, Color.yellow);
 		Room R5 = new Room(400, 100, Color.magenta);
-		
 		R1.connectEastTo(R3);
 		R1.connectNorthTo(R2);
 		R1.connectWestTo(R5);

@@ -13,11 +13,15 @@ public class Room {
 	
 	int dimx;
 	int dimy;
+	int screenx;
+	int screeny;
 	
 	public Room(int dx, int dy, Color color) {
 		this.Rcolor = color;
 		this.dimx = dx;
 		this.dimy = dy;
+
+		
 	}
 
 	public void connectNorthTo(Room r) {
