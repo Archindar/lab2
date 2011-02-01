@@ -16,6 +16,9 @@ public class Room {
 	int screenx;
 	int screeny;
 	
+	int cordx;
+	int cordy;
+	
 	public Room(int dx, int dy, Color color) {
 		this.Rcolor = color;
 		this.dimx = dx;
