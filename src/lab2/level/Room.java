@@ -11,12 +11,9 @@ public class Room {
 	Room REast;
 	Color Rcolor;
 	
-<<<<<<< HEAD
-=======
 	int dimx;
 	int dimy;
 	
->>>>>>> origin/master
 	public Room(int dx, int dy, Color color) {
 		this.Rcolor = color;
 		this.dimx = dx;
