@@ -10,7 +10,6 @@ public class Room {
 	Room RWest;
 	Room REast;
 	
-	
 	public Room(int dx, int dy, Color color) {
 
 	}
