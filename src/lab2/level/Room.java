@@ -5,16 +5,14 @@ import java.awt.Color;
 
 public class Room {
 	
-	Room RNorth;
-	Room RSouth;
-	Room RWest;
-	Room REast;
+	Room RNorth = null;
+	Room RSouth = null;
+	Room RWest = null;
+	Room REast = null;
 	Color Rcolor;
 	
 	int dimx;
 	int dimy;
-	int screenx;
-	int screeny;
 	
 	int cordx;
 	int cordy;
@@ -23,7 +21,6 @@ public class Room {
 		this.Rcolor = color;
 		this.dimx = dx;
 		this.dimy = dy;
-
 		
 	}
 
