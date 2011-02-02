@@ -13,8 +13,6 @@ public class Room {
 	
 	int dimx;
 	int dimy;
-	int screenx;
-	int screeny;
 	
 	int cordx;
 	int cordy;
