@@ -18,20 +18,9 @@ public class Level extends Observable {
 		}
 		//Room foo = listRoom.get(0);
 
-			for(int index=0; index<listRoom.size(); index++){ //lopar igenom alla rum
-				if (
-						(	//om x kordinaten där vi vill placera ut det nya rummet inom den..
-						(x<(listRoom.get(index).cordx + listRoom.get(index).dimx)) //östra kanten och..
-						&&
-						(x>listRoom.get(index).cordx) //den västra kanten.. 
-						)
-						&&	//samtidigt som den är inom den år inom den..
-						(
-						(y<(listRoom.get(index).cordy + listRoom.get(index).dimy))	//södra kanten och..
-						&&
-						(y>listRoom.get(index).cordy) //den nordliga kanten på ett annat rumm
-						)
-					){//med andra ord om den befinner sig inuti ett annat rum så returneras false
+			for(int i=0; i<listRoom.size(); i++){ //lopar igenom alla rum
+				if (inside(listRoom.get(i), x, y)||inside(listRoom.get(i), x+r.dimx, y+r.dimy)){
+					//med andra ord om den befinner sig inuti ett annat rum så returneras false
 					return false;
 				}
 			}
@@ -51,6 +40,44 @@ public class Level extends Observable {
 	
 	public void firstLocation(Room r) {
 			
+	}
+	
+	private boolean inside(Room r, int x, int y){
+		if(	//om x kordinaten där vi vill placera ut det nya rummet inom den..
+				(
+				(x<=r.cordx + r.dimx) //östra kanten och..
+				&&
+				(x>=r.cordx) //den västra kanten.. 
+				)
+				&&	//samtidigt som den är inom den år inom den..
+				(
+				(y<=r.cordy + r.dimy)	//södra kanten och..
+				&&
+				(y>=r.cordy) //den nordliga kanten på ett annat rumm
+				)
+			)
+			{
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	private int eastWall(int index){
+		return listRoom.get(index).cordx + listRoom.get(index).dimx;
+	}
+	
+	private int westWall(int index){
+		return listRoom.get(index).cordx;
+	}
+	
+	private int northWall(int index){
+		return listRoom.get(index).cordy;
+	}
+	
+	private int southWall(int index){
+		return listRoom.get(index).cordy + listRoom.get(index).dimy;
 	}
 	
 }
