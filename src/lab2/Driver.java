@@ -14,8 +14,8 @@ public class Driver {
 		//System.out.print("This is a print-out from the driver.");
 
 		
-		System.out.println(level.place(new Room(400, 100, Color.magenta), 0, 0));
-		System.out.println(level.place(new Room(200, 400, Color.blue), 0, 0));
+		System.out.println(level.place(new Room(100, 100, Color.magenta), 5, 5));
+		System.out.println(level.place(new Room(150, 400, Color.blue), 0, 0));
 		level.place(new Room(300, 300, Color.cyan), 0, 0);
 		level.place(new Room(100, 400, Color.gray), 0, 0);
 		level.place(new Room(600, 400, Color.yellow), 0, 0);

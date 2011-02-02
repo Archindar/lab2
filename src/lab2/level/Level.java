@@ -9,6 +9,8 @@ public class Level extends Observable {
 	Vector<Room> listRoom = new Vector<Room>();
 	
 	public boolean place(Room r, int x, int y)  {  //Ändra tillbaka void till boolean när denna ska användas.
+		r.cordx = x;
+		r.cordy = y;
 		
 		if(listRoom.size()==0){	//Sätter ut första rummet
 			listRoom.add(r);	
@@ -17,9 +19,11 @@ public class Level extends Observable {
 			return true;
 		}
 		//Room foo = listRoom.get(0);
-
+		
 			for(int i=0; i<listRoom.size(); i++){ //lopar igenom alla rum
-				if (inside(listRoom.get(i), x, y)||inside(listRoom.get(i), x+r.dimx, y+r.dimy)){
+				if (inside(listRoom.get(i), x, y)||inside(listRoom.get(i), x+r.dimx, y+r.dimy)
+						||inside(listRoom.get(i), x+r.dimx, y)||inside(listRoom.get(i), x, y+r.dimy)
+								||inside(r, listRoom.get(i).cordx, listRoom.get(i).cordy)){
 					//med andra ord om den befinner sig inuti ett annat rum så returneras false
 					return false;
 				}
