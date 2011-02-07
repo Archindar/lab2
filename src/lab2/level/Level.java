@@ -46,7 +46,7 @@ public class Level extends Observable {
 		*/
 	
 	
-	public void firstLocation(Room r) {r.playerChange(true);}
+	public void firstLocation(Room r) {r.player = true;}
 	
 	private boolean inside(Room r, int x, int y){
 		if(	//om x kordinaten där vi vill placera ut det nya rummet inom den..
