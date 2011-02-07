@@ -56,7 +56,7 @@ public class LevelGUI implements Observer {
 			super.paintComponent(g);
 			for (int i=0; i < this.lv.numRooms(); i++){
 				drawRoom(g, i);
-				drawConnections(g, i);
+				drawConnections(g, this.lv.getRoom(i));
 			}	
 		}
 		
@@ -73,7 +73,14 @@ public class LevelGUI implements Observer {
 					this.lv.getRoom(i).dimx, this.lv.getRoom(i).dimy);
 		}
 		
-		private void drawConnections(Graphics g, int i){	
+		private void drawConnections(Graphics g, Room r){
+			
+		}
+		
+		private void drawConNorth(Graphics g, Room r){
+			g.setColor(Color.BLACK);
+			String str = "3"; //ska vara numret på det rum som kopplingen går till
+			g.drawString(str, r.cordx + r.dimx/2, r.cordy+10);
 		}
 		
 
