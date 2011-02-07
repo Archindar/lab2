@@ -47,7 +47,7 @@ public class LevelGUI implements Observer {
 			
 			addKeyListener(new Listener());
 			
-			setBackground(Color.GREEN);
+			setBackground(Color.lightGray);
 			setPreferredSize(new Dimension(x+20,y+20));
 			setFocusable(true);
 		}
@@ -60,7 +60,7 @@ public class LevelGUI implements Observer {
 				g.setColor(this.lv.listRoom.get(i).Rcolor);
 				g.fillRect(this.lv.listRoom.get(i).cordx, this.lv.listRoom.get(i).cordy,
 						this.lv.listRoom.get(i).dimx, this.lv.listRoom.get(i).dimy);
-	            g.setColor(Color.black);
+	            g.setColor(Color.white);
 	            g.drawRect(this.lv.listRoom.get(i).cordx, this.lv.listRoom.get(i).cordy,
 						this.lv.listRoom.get(i).dimx, this.lv.listRoom.get(i).dimy);
 			}
