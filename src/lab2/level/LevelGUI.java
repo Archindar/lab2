@@ -26,7 +26,7 @@ public class LevelGUI implements Observer {
 		
 		// TODO: You should change 200 to a value 
 		// depending on the size of the level
-		d = new Display(lv,200,200);
+		d = new Display(lv,640,480);
 		
 		frame.getContentPane().add(d);
 		frame.pack();
@@ -36,14 +36,14 @@ public class LevelGUI implements Observer {
 	
 	
 	public void update(Observable arg0, Object arg1) {
-		
+		d.repaint();
 	}
 	
 	private class Display extends JPanel {
 		
-		
+		private Level lv;
 		public Display(Level fp, int x, int y) {
-		
+			this.lv=fp;
 			
 			addKeyListener(new Listener());
 			
@@ -56,6 +56,14 @@ public class LevelGUI implements Observer {
 		
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
+			for (int i=0; i < this.lv.listRoom.size(); i++){
+				g.setColor(this.lv.listRoom.get(i).Rcolor);
+				g.fillRect(this.lv.listRoom.get(i).cordx, this.lv.listRoom.get(i).cordy,
+						this.lv.listRoom.get(i).dimx, this.lv.listRoom.get(i).dimy);
+	            g.setColor(Color.black);
+	            g.drawRect(this.lv.listRoom.get(i).cordx, this.lv.listRoom.get(i).cordy,
+						this.lv.listRoom.get(i).dimx, this.lv.listRoom.get(i).dimy);
+			}
 			
 		}
 		

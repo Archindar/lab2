@@ -40,7 +40,7 @@ public class Driver {
 //		R5.connectWestTo(R5);
 //		R5.connectSouthTo(R2);
 		
-		
+		LevelGUI Lgui = new LevelGUI(this.level, "test");
 	}
 
 }
