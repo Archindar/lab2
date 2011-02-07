@@ -47,7 +47,7 @@ public class LevelGUI implements Observer {
 			
 			addKeyListener(new Listener());
 			
-			setBackground(Color.lightGray);
+			setBackground(Color.GREEN);
 			setPreferredSize(new Dimension(x+20,y+20));
 			setFocusable(true);
 		}
@@ -56,14 +56,23 @@ public class LevelGUI implements Observer {
 		
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
-			for (int i=0; i < this.lv.listRoom.size(); i++){
-				g.setColor(this.lv.listRoom.get(i).Rcolor);
-				g.fillRect(this.lv.listRoom.get(i).cordx, this.lv.listRoom.get(i).cordy,
-						this.lv.listRoom.get(i).dimx, this.lv.listRoom.get(i).dimy);
-	            g.setColor(Color.white);
-	            g.drawRect(this.lv.listRoom.get(i).cordx, this.lv.listRoom.get(i).cordy,
-						this.lv.listRoom.get(i).dimx, this.lv.listRoom.get(i).dimy);
+			for (int i=0; i < this.lv.numRooms(); i++){
+				drawRoom(g, i);
+				drawConnections(g, i);
 			}
+			
+		}
+		
+		private void drawRoom(Graphics g, int i) {
+			g.setColor(this.lv.getRoom(i).Rcolor);
+			g.fillRect(this.lv.getRoom(i).cordx, this.lv.getRoom(i).cordy,
+					this.lv.getRoom(i).dimx, this.lv.getRoom(i).dimy);
+	        g.setColor(Color.black);
+	        g.drawRect(this.lv.getRoom(i).cordx, this.lv.getRoom(i).cordy,
+					this.lv.getRoom(i).dimx, this.lv.getRoom(i).dimy);
+		}
+		
+		private void drawConnections(Graphics g, int i){
 			
 		}
 		

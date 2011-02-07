@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class Level extends Observable {
 	
-	Vector<Room> listRoom = new Vector<Room>();
+	private Vector<Room> listRoom = new Vector<Room>();
 	
 	public boolean place(Room r, int x, int y) {
 		r.cordx = x;
@@ -14,8 +14,6 @@ public class Level extends Observable {
 		
 		if(listRoom.size() == 0){	//Sätter ut första rummet
 			listRoom.add(r);	
-			r.cordx = x;
-			r.cordy = y;
 			return true;
 		}
 		//Room foo = listRoom.get(0);
@@ -30,13 +28,15 @@ public class Level extends Observable {
 			}
 			//Om det nya rummet inte inkräktar på nått annat rum så placeras det ut
 			listRoom.add(r);	
-			r.cordx = x;
-			r.cordy = y;
 			return true;
 	}
 	
-	public Room getroom(int nr){
+	public Room getRoom(int nr){
 		return listRoom.elementAt(nr);
+	}
+	
+	public int numRooms(){
+		return listRoom.size();
 	}
 		
 		/**Create a Vector with an initial size 
@@ -70,19 +70,19 @@ public class Level extends Observable {
 		}
 	}
 	
-	private int eastWall(int index){
+	private int right(int index){
 		return listRoom.get(index).cordx + listRoom.get(index).dimx;
 	}
 	
-	private int westWall(int index){
+	private int left(int index){
 		return listRoom.get(index).cordx;
 	}
 	
-	private int northWall(int index){
+	private int top(int index){
 		return listRoom.get(index).cordy;
 	}
 	
-	private int southWall(int index){
+	private int bottom(int index){
 		return listRoom.get(index).cordy + listRoom.get(index).dimy;
 	}
 	
