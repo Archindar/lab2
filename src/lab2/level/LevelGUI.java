@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -23,9 +22,7 @@ public class LevelGUI implements Observer {
 		
 		JFrame frame = new JFrame(name);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		// TODO: You should change 200 to a value 
-		// depending on the size of the level
+
 		d = new Display(lv,640,480);
 		
 		frame.getContentPane().add(d);

@@ -38,16 +38,17 @@ public class Level extends Observable {
 	public int numRooms(){
 		return listRoom.size();
 	}
-		
-		/**Create a Vector with an initial size 
-		* Vector v = new Vector(300);
-		* To Add elements to the end of a Vector
-		* v.add(s); // adds s to the end of the Vector v
-		*/
 	
+	public void firstLocation(Room r) {
+		r.player = true;
+		}
 	
-	public void firstLocation(Room r) {r.player = true;}
-	
+	void changeRoom(Room r) {
+		for (int i=0; i < this.numRooms(); i++){
+			getRoom(i).player = false;
+		}
+		r.player = true;	
+	}
 	private boolean inside(Room r, int x, int y){
 		if(	//om x kordinaten där vi vill placera ut det nya rummet inom den..
 				(

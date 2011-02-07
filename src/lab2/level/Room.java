@@ -15,9 +15,7 @@ public class Room {
 	int cordx;
 	int cordy;
 	boolean player = false;
-	
-	void playerChange(boolean change) { this.player = change;}
-	
+
 	public Room(int dx, int dy, Color color) {
 		this.Rcolor = color;
 		this.dimx = dx;
