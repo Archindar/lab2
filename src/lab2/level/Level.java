@@ -8,16 +8,11 @@ public class Level extends Observable {
 	
 	Vector<Room> listRoom = new Vector<Room>();
 	
-<<<<<<< HEAD
-	public boolean place(Room r, int x, int y)  { 
-		int xtot;
-		int ytot;
-=======
 	public boolean place(Room r, int x, int y)  {  //Ändra tillbaka void till boolean när denna ska användas.
 		r.cordx = x;
 		r.cordy = y;
 		
-		if(listRoom.size()==0){	//Sätter ut första rummet
+		if(listRoom.size() == 0){	//Sätter ut första rummet
 			listRoom.add(r);	
 			r.cordx = x;
 			r.cordy = y;
@@ -25,10 +20,10 @@ public class Level extends Observable {
 		}
 		//Room foo = listRoom.get(0);
 		
-			for(int i=0; i<listRoom.size(); i++){ //lopar igenom alla rum
-				if (inside(listRoom.get(i), x, y)||inside(listRoom.get(i), x+r.dimx, y+r.dimy)
-						||inside(listRoom.get(i), x+r.dimx, y)||inside(listRoom.get(i), x, y+r.dimy)
-								||inside(r, listRoom.get(i).cordx, listRoom.get(i).cordy)){
+			for(int i=0; i < listRoom.size(); i++){ //lopar igenom alla rum
+				if (inside(listRoom.get(i), x, y) || inside(listRoom.get(i), x+r.dimx, y+r.dimy)
+						|| inside(listRoom.get(i), x+r.dimx, y) || inside(listRoom.get(i), x, y+r.dimy)
+								|| inside(r, listRoom.get(i).cordx, listRoom.get(i).cordy)){
 					//med andra ord om den befinner sig inuti ett annat rum så returneras false
 					return false;
 				}
@@ -38,28 +33,18 @@ public class Level extends Observable {
 			r.cordx = x;
 			r.cordy = y;
 			return true;
-		}
->>>>>>> origin/master
+	}
+	
+	public Room getroom(int nr){
+		return listRoom.elementAt(nr);
+	}
 		
 		/**Create a Vector with an initial size 
 		* Vector v = new Vector(300);
 		* To Add elements to the end of a Vector
 		* v.add(s); // adds s to the end of the Vector v
 		*/
-<<<<<<< HEAD
-		
-		if ((xtot < x) && (ytot < y)) {
-			return true;
-		else {
-			return false;
-			}
-		}
-			
-		}
-	}
-=======
 	
->>>>>>> origin/master
 	
 	public void firstLocation(Room r) {
 			
@@ -68,15 +53,15 @@ public class Level extends Observable {
 	private boolean inside(Room r, int x, int y){
 		if(	//om x kordinaten där vi vill placera ut det nya rummet inom den..
 				(
-				(x<=r.cordx + r.dimx) //östra kanten och..
+				(x <= r.cordx + r.dimx) //östra kanten och..
 				&&
-				(x>=r.cordx) //den västra kanten.. 
+				(x >= r.cordx) //den västra kanten.. 
 				)
 				&&	//samtidigt som den är inom den år inom den..
 				(
-				(y<=r.cordy + r.dimy)	//södra kanten och..
+				(y <= r.cordy + r.dimy)	//södra kanten och..
 				&&
-				(y>=r.cordy) //den nordliga kanten på ett annat rumm
+				(y >= r.cordy) //den nordliga kanten på ett annat rumm
 				)
 			)
 			{
