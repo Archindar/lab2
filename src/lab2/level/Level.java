@@ -8,7 +8,7 @@ public class Level extends Observable {
 	
 	Vector<Room> listRoom = new Vector<Room>();
 	
-	public boolean place(Room r, int x, int y)  {  //Ändra tillbaka void till boolean när denna ska användas.
+	public boolean place(Room r, int x, int y) {
 		r.cordx = x;
 		r.cordy = y;
 		
@@ -46,9 +46,7 @@ public class Level extends Observable {
 		*/
 	
 	
-	public void firstLocation(Room r) {
-			
-	}
+	public void firstLocation(Room r) {r.playerChange(true);}
 	
 	private boolean inside(Room r, int x, int y){
 		if(	//om x kordinaten där vi vill placera ut det nya rummet inom den..

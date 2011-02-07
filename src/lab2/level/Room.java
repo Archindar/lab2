@@ -10,18 +10,18 @@ public class Room {
 	Room RWest = null;
 	Room REast = null;
 	Color Rcolor;
-	
 	int dimx;
 	int dimy;
-	
 	int cordx;
 	int cordy;
+	boolean player = false;
+	
+	void playerChange(boolean change) { this.player = change;}
 	
 	public Room(int dx, int dy, Color color) {
 		this.Rcolor = color;
 		this.dimx = dx;
 		this.dimy = dy;
-		
 	}
 
 	public void connectNorthTo(Room r) {
