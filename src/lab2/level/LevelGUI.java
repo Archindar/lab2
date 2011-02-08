@@ -52,32 +52,63 @@ public class LevelGUI implements Observer {
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			for (int i=0; i < this.lv.numRooms(); i++){
-				drawRoom(g, i);
+				drawRoom(g, this.lv.getRoom(i));
 				drawConnections(g, this.lv.getRoom(i));
 			}	
 		}
 		
-		private void drawRoom(Graphics g, int i) {
-			g.setColor(this.lv.getRoom(i).Rcolor);
-			g.fillRect(this.lv.getRoom(i).cordx, this.lv.getRoom(i).cordy,
-					this.lv.getRoom(i).dimx, this.lv.getRoom(i).dimy);
-	        if (this.lv.getRoom(i).player == true) { 
+		private void drawRoom(Graphics g, Room r) {
+			g.setColor(r.Rcolor);
+			g.fillRect(r.cordx, r.cordy,
+					r.dimx, r.dimy);
+	        if (r.player == true) { 
 	        	g.setColor(Color.red); }
 	        else { 
 	        	g.setColor(Color.black); 
 	        } 
-	        g.drawRect(this.lv.getRoom(i).cordx, this.lv.getRoom(i).cordy,
-					this.lv.getRoom(i).dimx, this.lv.getRoom(i).dimy);
+	        g.drawRect(r.cordx, r.cordy,
+					r.dimx, r.dimy);
+	        String name = Integer.toString(r.name);
+	        g.drawString(name, r.cordx+r.dimx/2,r.cordy+r.dimy/2);
 		}
 		
 		private void drawConnections(Graphics g, Room r){
-			
+			if(r.RNorth!=null){
+				drawConNorth(g, r);
+			}
+			if(r.REast!=null){
+				drawConEast(g, r);
+			}
+			if(r.RSouth!=null){
+				drawConSouth(g, r);
+			}
+			if(r.RWest!=null){
+				drawConWest(g, r);
+			}
 		}
 		
 		private void drawConNorth(Graphics g, Room r){
 			g.setColor(Color.BLACK);
-			String str = "3"; //ska vara numret på det rum som kopplingen går till
+			String str = Integer.toString(r.RNorth.name); //ska vara numret på det rum som kopplingen går till
 			g.drawString(str, r.cordx + r.dimx/2, r.cordy+10);
+		}
+		
+		private void drawConSouth(Graphics g, Room r){
+			g.setColor(Color.BLACK);
+			String str = Integer.toString(r.RSouth.name); //ska vara numret på det rum som kopplingen går till
+			g.drawString(str, r.cordx + r.dimx/2, r.cordy+r.dimy);
+		}
+		
+		private void drawConWest(Graphics g, Room r){
+			g.setColor(Color.BLACK);
+			String str = Integer.toString(r.RWest.name); //ska vara numret på det rum som kopplingen går till
+			g.drawString(str, r.cordx, r.cordy+r.dimy/2+5);
+		}
+		
+		private void drawConEast(Graphics g, Room r){
+			g.setColor(Color.BLACK);
+			String str = Integer.toString(r.REast.name); //ska vara numret på det rum som kopplingen går till
+			g.drawString(str, r.cordx + r.dimx-6, r.cordy+r.dimy/2+5);
 		}
 		
 
