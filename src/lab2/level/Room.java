@@ -5,10 +5,10 @@ import java.awt.Color;
 
 public class Room {
 	int name;
-	Room RNorth = null;
-	Room RSouth = null;
-	Room RWest = null;
-	Room REast = null;
+	Room RNorth = this;
+	Room RSouth = this;
+	Room RWest = this;
+	Room REast = this;
 	Color Rcolor;
 	int dimx;
 	int dimy;

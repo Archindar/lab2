@@ -71,20 +71,22 @@ public class Level extends Observable {
 		}
 	}
 	
-	private int right(int index){
-		return listRoom.get(index).cordx + listRoom.get(index).dimx;
-	}
 	
-	private int left(int index){
-		return listRoom.get(index).cordx;
-	}
 	
-	private int top(int index){
-		return listRoom.get(index).cordy;
-	}
-	
-	private int bottom(int index){
-		return listRoom.get(index).cordy + listRoom.get(index).dimy;
-	}
+//	private int right(int index){
+//		return listRoom.get(index).cordx + listRoom.get(index).dimx;
+//	}
+//	
+//	private int left(int index){
+//		return listRoom.get(index).cordx;
+//	}
+//	
+//	private int top(int index){
+//		return listRoom.get(index).cordy;
+//	}
+//	
+//	private int bottom(int index){
+//		return listRoom.get(index).cordy + listRoom.get(index).dimy;
+//	}
 	
 }
