@@ -4,7 +4,7 @@ import java.awt.Color;
 
 
 public class Room {
-	
+	int name;
 	Room RNorth = null;
 	Room RSouth = null;
 	Room RWest = null;
@@ -15,11 +15,15 @@ public class Room {
 	int cordx;
 	int cordy;
 	boolean player = false;
+	
+	private static int numberofrooms=0;
 
 	public Room(int dx, int dy, Color color) {
 		this.Rcolor = color;
 		this.dimx = dx;
 		this.dimy = dy;
+		numberofrooms=numberofrooms+1;
+		this.name=numberofrooms;
 	}
 
 	public void connectNorthTo(Room r) {
