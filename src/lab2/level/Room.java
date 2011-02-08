@@ -22,8 +22,8 @@ public class Room {
 		this.Rcolor = color;
 		this.dimx = dx;
 		this.dimy = dy;
-		numberofrooms=numberofrooms+1;
-		this.name=numberofrooms;
+		numberofrooms = numberofrooms + 1;
+		this.name = numberofrooms;
 	}
 
 	public void connectNorthTo(Room r) {

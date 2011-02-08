@@ -19,7 +19,6 @@ public class LevelGUI implements Observer {
 	public LevelGUI(Level level, String name) {
 		
 		this.lv = level;
-		
 		JFrame frame = new JFrame(name);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -121,6 +120,7 @@ public class LevelGUI implements Observer {
 	 		}
 
 	 		public void keyTyped(KeyEvent event) {
+	 			lv.changeRoom(Character.toString(event.getKeyChar()));
 	 		}
 	 	}
 
