@@ -62,7 +62,7 @@ public class LevelGUI implements Observer {
 			g.setColor(r.Rcolor);
 			g.fillRect(r.cordx, r.cordy,
 					r.dimx, r.dimy);
-	        if (r.player == true) { 
+	        if (lv.playerLokation==r) { 
 	        	g.setColor(Color.red); }
 	        else { 
 	        	g.setColor(Color.black); 
@@ -122,6 +122,7 @@ public class LevelGUI implements Observer {
 	 		}
 
 	 		public void keyTyped(KeyEvent event) {
+	 			
 	 		}
 	 	}
 

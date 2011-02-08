@@ -14,7 +14,6 @@ public class Room {
 	int dimy;
 	int cordx;
 	int cordy;
-	boolean player = false;
 	
 	private static int numberofrooms=0;
 

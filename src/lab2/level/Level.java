@@ -7,6 +7,7 @@ import java.util.Vector;
 public class Level extends Observable {
 	
 	private Vector<Room> listRoom = new Vector<Room>();
+	Room playerLokation;
 	
 	public boolean place(Room r, int x, int y) {
 		r.cordx = x;
@@ -40,14 +41,22 @@ public class Level extends Observable {
 	}
 	
 	public void firstLocation(Room r) {
-		r.player = true;
+		this.playerLokation = r;
 		}
 	
-	void changeRoom(Room r) {
-		for (int i=0; i < this.numRooms(); i++){
-			getRoom(i).player = false;
+	void changeRoom(String dir) {
+		if(dir=="w"||dir=="W") {
+			this.playerLokation = this.playerLokation.RNorth;
 		}
-		r.player = true;	
+		if(dir=="s"||dir=="S") {
+			this.playerLokation = this.playerLokation.RSouth;
+		}
+		if(dir=="a"||dir=="A") {
+			this.playerLokation = this.playerLokation.RWest;
+		}
+		if(dir=="d"||dir=="D") {
+			this.playerLokation = this.playerLokation.REast;
+		}	
 	}
 	private boolean inside(Room r, int x, int y){
 		if(	//om x kordinaten där vi vill placera ut det nya rummet inom den..
