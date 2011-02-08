@@ -44,7 +44,7 @@ public class Driver {
 		//Initieringarna som behövs för att starta leveln. Efter det reutneras 
 		// metoden så att det inte ska gå att placera fler rum i leveln.
 		level.firstLocation(level.getRoom(0));
-		LevelGUI Lgui = new LevelGUI(this.level, "test");
+		LevelGUI Lgui = new LevelGUI(this.level, "Laboration 2");
 		return;
 	}
 }
