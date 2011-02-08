@@ -46,25 +46,23 @@ public class Level extends Observable {
 	
 	void changeRoom(String dir) {
 		if(dir.equalsIgnoreCase("w")) {
-			this.playerLokation = this.playerLokation.RNorth;
-			this.setChanged();
-			this.notifyObservers();
+			movePlayer(this.playerLokation.RNorth);
 		}
 		if(dir.equalsIgnoreCase("s")) {
-			this.playerLokation = this.playerLokation.RSouth;
-			this.setChanged();
-			this.notifyObservers();
+			movePlayer(this.playerLokation.RSouth);
 		}
 		if(dir.equalsIgnoreCase("a")) {
-			this.playerLokation = this.playerLokation.RWest;
-			this.setChanged();
-			this.notifyObservers();
+			movePlayer(this.playerLokation.RWest);
 		}
 		if(dir.equalsIgnoreCase("d")) {
-			this.playerLokation = this.playerLokation.REast;
-			this.setChanged();
-			this.notifyObservers();
+			movePlayer(this.playerLokation.REast);
 		}
+	}
+	
+	private void movePlayer(Room r) {
+		this.playerLokation = r;
+		this.setChanged();
+		this.notifyObservers();
 	}
 	private boolean inside(Room r, int x, int y){
 		if(	//om x kordinaten där vi vill placera ut det nya rummet inom den..
