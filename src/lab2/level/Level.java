@@ -45,22 +45,22 @@ public class Level extends Observable {
 		}
 	
 	void changeRoom(String dir) {
-		if(dir=="w"||dir=="W") {
+		if(dir.equalsIgnoreCase("w")) {
 			this.playerLokation = this.playerLokation.RNorth;
 			this.setChanged();
 			this.notifyObservers();
 		}
-		if(dir=="s"||dir=="S") {
+		if(dir.equalsIgnoreCase("s")) {
 			this.playerLokation = this.playerLokation.RSouth;
 			this.setChanged();
 			this.notifyObservers();
 		}
-		if(dir=="a"||dir=="A") {
+		if(dir.equalsIgnoreCase("a")) {
 			this.playerLokation = this.playerLokation.RWest;
 			this.setChanged();
 			this.notifyObservers();
 		}
-		if(dir=="d"||dir=="D") {
+		if(dir.equalsIgnoreCase("d")) {
 			this.playerLokation = this.playerLokation.REast;
 			this.setChanged();
 			this.notifyObservers();
