@@ -41,7 +41,7 @@ public class Driver {
 		level.getRoom(4).connectWestTo(level.getRoom(3));
 		level.getRoom(4).connectNorthTo(level.getRoom(1));
 		level.getRoom(4).connectSouthTo(level.getRoom(0));
-		//Initieringarna som behövs för att starta leveln. Efter det reutneras 
+		//Initieringarna som behövs för att starta leveln. Efter det returneras 
 		// metoden så att det inte ska gå att placera fler rum i leveln.
 		level.firstLocation(level.getRoom(0));
 		LevelGUI Lgui = new LevelGUI(this.level, "Laboration 2");

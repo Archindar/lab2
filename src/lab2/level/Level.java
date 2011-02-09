@@ -7,29 +7,51 @@ import java.util.Vector;
 public class Level extends Observable {
 	
 	private Vector<Room> listRoom = new Vector<Room>();
-	Room playerLokation;
+	Room playerLocation;
 	
 	public boolean place(Room r, int x, int y) {
 		r.cordx = x;
 		r.cordy = y;
 		
-		if(listRoom.size() == 0){	//Sätter ut första rummet
+		if(listRoom.size() == 0){	//Sätter ut första rummet i leveln.
 			listRoom.add(r);	
 			return true;
 		}
-		//Room foo = listRoom.get(0);
-		
-			for(int i=0; i < listRoom.size(); i++){ //lopar igenom alla rum
+		//Loopar igenom alla rum och testar om något av de gamla rummen som finns i vektorn är inom det nya
+		// rummets koordinater. Den testar även om det nya rummet råkar vara i ett av de gamla. Alla 
+		// testningar görs genom metoden inside.
+			for(int i=0; i < listRoom.size(); i++){ 
 				if (inside(listRoom.get(i), x, y) || inside(listRoom.get(i), x+r.dimx, y+r.dimy)
 						|| inside(listRoom.get(i), x+r.dimx, y) || inside(listRoom.get(i), x, y+r.dimy)
 								|| inside(r, listRoom.get(i).cordx, listRoom.get(i).cordy)){
-					//med andra ord om den befinner sig inuti ett annat rum så returneras false
+					//Om något av de statements ovan uppfylls returneras false och det nya rummet sätts inte ut.
 					return false;
 				}
 			}
-			//Om det nya rummet inte inkräktar på nått annat rum så placeras det ut
+			//Om det nya rummet inte inkräktar på nått annat rum så placeras det ut och returnerar true.
 			listRoom.add(r);	
 			return true;
+	}
+	private boolean inside(Room r, int x, int y){
+		if(	//x är koordinaten där vi vill placera ut det nya rummet inom leveln.
+				(
+				(x <= r.cordx + r.dimx) //Östra kanten testas
+				&&
+				(x >= r.cordx) //Västra kanten 
+				)
+				&&	//samtidigt som den är inom den år inom den..
+				(
+				(y <= r.cordy + r.dimy)	//Södra kanten
+				&&
+				(y >= r.cordy) //Norra kanten
+				)
+			)
+			{
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	
 	public Room getRoom(int nr){
@@ -41,67 +63,27 @@ public class Level extends Observable {
 	}
 	
 	public void firstLocation(Room r) {
-		this.playerLokation = r;
+		this.playerLocation = r;
 		}
 	
 	void changeRoom(String dir) {
 		if(dir.equalsIgnoreCase("w")) {
-			movePlayer(this.playerLokation.RNorth);
+			movePlayer(this.playerLocation.RNorth);
 		}
 		if(dir.equalsIgnoreCase("s")) {
-			movePlayer(this.playerLokation.RSouth);
+			movePlayer(this.playerLocation.RSouth);
 		}
 		if(dir.equalsIgnoreCase("a")) {
-			movePlayer(this.playerLokation.RWest);
+			movePlayer(this.playerLocation.RWest);
 		}
 		if(dir.equalsIgnoreCase("d")) {
-			movePlayer(this.playerLokation.REast);
+			movePlayer(this.playerLocation.REast);
 		}
 	}
 	
 	private void movePlayer(Room r) {
-		this.playerLokation = r;
+		this.playerLocation = r;
 		this.setChanged();
 		this.notifyObservers();
 	}
-	private boolean inside(Room r, int x, int y){
-		if(	//om x kordinaten där vi vill placera ut det nya rummet inom den..
-				(
-				(x <= r.cordx + r.dimx) //östra kanten och..
-				&&
-				(x >= r.cordx) //den västra kanten.. 
-				)
-				&&	//samtidigt som den är inom den år inom den..
-				(
-				(y <= r.cordy + r.dimy)	//södra kanten och..
-				&&
-				(y >= r.cordy) //den nordliga kanten på ett annat rumm
-				)
-			)
-			{
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	
-	
-	
-//	private int right(int index){
-//		return listRoom.get(index).cordx + listRoom.get(index).dimx;
-//	}
-//	
-//	private int left(int index){
-//		return listRoom.get(index).cordx;
-//	}
-//	
-//	private int top(int index){
-//		return listRoom.get(index).cordy;
-//	}
-//	
-//	private int bottom(int index){
-//		return listRoom.get(index).cordy + listRoom.get(index).dimy;
-//	}
-	
 }

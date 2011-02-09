@@ -15,7 +15,7 @@ public class Room {
 	int cordx;
 	int cordy;
 	
-	private static int numberofrooms=0;
+	private static int numberofrooms = 0;
 
 	public Room(int dx, int dy, Color color) {
 		this.Rcolor = color;

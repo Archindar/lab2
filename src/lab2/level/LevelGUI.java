@@ -60,15 +60,13 @@ public class LevelGUI implements Observer {
 		
 		private void drawRoom(Graphics g, Room r) {
 			g.setColor(r.Rcolor);
-			g.fillRect(r.cordx, r.cordy,
-					r.dimx, r.dimy);
-	        if (lv.playerLokation==r) { 
+			g.fillRect(r.cordx, r.cordy, r.dimx, r.dimy);
+	        if (lv.playerLocation==r) { 
 	        	g.setColor(Color.red); }
 	        else { 
 	        	g.setColor(Color.black); 
 	        } 
-	        g.drawRect(r.cordx, r.cordy,
-					r.dimx, r.dimy);
+	        g.drawRect(r.cordx, r.cordy, r.dimx, r.dimy);
 	        String name = Integer.toString(r.name);
 	        g.drawString(name, r.cordx-2+r.dimx/2,r.cordy+r.dimy/2+5);
 		}
@@ -111,7 +109,6 @@ public class LevelGUI implements Observer {
 			String str = Integer.toString(r.REast.name);
 			g.drawString(str, r.cordx + r.dimx - 9, r.cordy + r.dimy/2+5);
 		}
-		
 
 	 	private class Listener implements KeyListener {
 
