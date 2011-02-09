@@ -23,8 +23,12 @@ public class Level extends Observable {
 			for(int i=0; i < listRoom.size(); i++){ 
 				if (inside(listRoom.get(i), x, y) || inside(listRoom.get(i), x+r.dimx, y+r.dimy)
 						|| inside(listRoom.get(i), x+r.dimx, y) || inside(listRoom.get(i), x, y+r.dimy)
-								|| inside(r, listRoom.get(i).cordx, listRoom.get(i).cordy)){
+								|| inside(r, listRoom.get(i).cordx, listRoom.get(i).cordy)
+								|| inside(r, listRoom.get(i).cordx+listRoom.get(i).dimx, listRoom.get(i).cordy)
+								|| inside(r, listRoom.get(i).cordx, listRoom.get(i).cordy+listRoom.get(i).dimy)
+								|| inside(r, listRoom.get(i).cordx+listRoom.get(i).dimx, listRoom.get(i).cordy+listRoom.get(i).dimy)){
 					//Om något av de statements ovan uppfylls returneras false och det nya rummet sätts inte ut.
+					r.deleteRoom();
 					return false;
 				}
 			}

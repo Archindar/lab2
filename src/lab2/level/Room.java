@@ -24,6 +24,9 @@ public class Room {
 		numberofrooms = numberofrooms + 1;
 		this.name = numberofrooms;
 	}
+	void deleteRoom(){
+		numberofrooms = numberofrooms - 1;
+	}
 
 	public void connectNorthTo(Room r) {
 		this.RNorth = r;

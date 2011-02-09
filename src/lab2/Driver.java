@@ -17,8 +17,10 @@ public class Driver {
 		System.out.println(level.place(new Room(100, 50, Color.magenta), 5, 5));
 		System.out.println(level.place(new Room(150, 70, Color.blue), 120, 5));
 		System.out.println(level.place(new Room(80, 60, Color.cyan), 5, 105));
+		System.out.println(level.place(new Room(100, 70, Color.yellow), 50, 180));
 		System.out.println(level.place(new Room(100, 200, Color.gray), 120, 120));
 		System.out.println(level.place(new Room(100, 150, Color.yellow), 230, 150));
+		
 		//Alla kopplingar mellan rummen görs nedan.
 		//1
 		level.getRoom(0).connectEastTo(level.getRoom(1));
